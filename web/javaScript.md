@@ -574,9 +574,62 @@
         }
     }
 
+16、dom编程-获取文本框的内容
+    <!doctype html>
+    <html>
+        <head>
+            <title></title>
+        </head>
+        <body>
+            <script type="text/javascript">
+                /*
+                JavaScript包括三大块：
+                    ECMAScript：js的核心语法
+                    DOM:Document Object Model(文档对象模型：对网页当中的节点进行增删改的过程)HTML
+                    BOM:Browser Object Model(浏览器对象模型)
+                        关闭浏览器窗口、打开一个新的浏览器窗口、后退、前进、浏览器地址栏上的地址等，都是BOM编程。
+                
+                DOM和BOM的区别和联系?
+                    BOM的顶级对象是window
+                    DOM的顶级对象是document
+                        document.getElementById("id");
+                    实际上BOM是包括DOM的
+                */
+                
+                window.onload = function() {
+                    var btnElt = document.getElementById("btn");
+                    btnElt.onclick = function() {
+                        var usernameElt = document.getElementById("username");
+                        var username = usernameElt.value;
+                        alert(username);
+
+                        //也可以修改text中的内容
+                        document.getElementById("username").value = "Jenny";
+                    }
+                }
 
 
+            </script>
 
+            <input type="text" id="username" />
+            <input type="button" value="获取text的内容" id="btn">
+        </body>
+    </html>
+
+17、innerHTML和innerText操作div和span【code01.html】
+    相同点：都是设置元素内容的内容。
+    不同点：
+        innerHTML会把后面的“字符串”当做一段HTML代码解释并执行。
+        innerText，即使后面是一段HTML代码，也只是将其当做普通的字符串来看待。
+
+18、正则表达式
+    什么是正则表达式，有什么用?
+        正则表达式：regular expression
+        正则表达式主要用在字符串格式匹配上面。
+
+    正则表达式实际上是一门独立的学科，在大部分编程语言中都支持正则表达式。正则表达式最初使用在医学方面，用来表示神经符号。目前使用最多的是计算机编程领域，用作字符串格式匹配，包括搜索方面等。
+
+    
 
 
 
