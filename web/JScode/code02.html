@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById("btn").onclick = function() {
+                var username = document.getElementById("username").value;
+                username = username.trim();
+                alert(username);
+
+            }
+
+
+            //低版本的IE不支持trim怎么办?
+            String.prototype.trim = function() {
+                //去除当前字符串的前后空白
+                //this在当前的方法中的this代表的就是当前字符串
+                return this.replace("/^\s+/", "").replace("/\s+$/", "");
+            }
+        }
+    </script>
+    <input type="text" id="username">
+    <input type="button" value="获取用户名" id="btn">
+</body>
+</html>

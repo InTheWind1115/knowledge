@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script text="text/javascript">
+        window.onload = function() {
+            var aihaos = document.getElementsByName("aihao");
+            var firstChk = document.getElementById("firstChk");
+            firstChk.onclick = function() {
+                if (firstChk.checked) {
+                    for (var i = 0; i < aihaos.length; i++) {
+                        aihaos[i].checked = true;
+                    }
+                    
+                } else {
+                    for (var i = 0; i < aihaos.length; i++) {
+                        aihaos[i].checked = false;
+                    }
+                }
+            }
+
+            var all = aihaos.length;
+            
+            for (var i = 0; i < aihaos.length; i++) {
+                aihaos.onclick = function() {
+                    var checkedCount = 0;
+                    for (var i = 0; i < aihaos.length; i++) {
+                        checkedCount++;
+                    }
+                }
+
+                firstChk = (all == checkedCount);
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="firstChk" />
+    <input type="checkbox" name="aihao" value="smoke" />抽烟<br>
+    <input type="checkbox" name="aihao" value="drink" />喝酒<br>
+    <input type="checkbox" name="aihao" value="ti" />烫头<br>
+    input:
+</body>
+</html>

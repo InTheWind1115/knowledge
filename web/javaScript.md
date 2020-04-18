@@ -627,43 +627,69 @@
         正则表达式：regular expression
         正则表达式主要用在字符串格式匹配上面。
 
-    正则表达式实际上是一门独立的学科，在大部分编程语言中都支持正则表达式。正则表达式最初使用在医学方面，用来表示神经符号。目前使用最多的是计算机编程领域，用作字符串格式匹配，包括搜索方面等。
+    正则表达式实际上是一门独立的学科，在大部分编程语言中都支持正则表达式。
+    正则表达式最初使用在医学方面，用来表示神经符号。目前使用最多的是计算机编程领域，用作字符串格式匹配，包括搜索方面等。
 
+    正则表达式当中的小括号()优先级较高。
+    [1-9]表示1到9的任意一个次数(次数是一次)
+    [A-Za-z0-9]表示A-Za-z0-9种的任意1个字符
+    [A-Za-z0-9-]表示A-Z a-z 0-9 - 这几个种的任意1个字符
     
+    在js中如何创建正则表达式对象？
+        第一种创建方式：
+            var regExp = /正则表达式/flags;
 
+        第二种方式：
+            var regExp = new RegExp("正则表达式", "flags");
 
+        关于flags:
+            g:全局匹配
+            i:忽略大小写
+            m:多行查找(ES规范制定之后才支持m) //如果是正则表达式的话 则flags不能使用m 只有前面是普通字符串的时候才能够使用m
+        
+        正则表达式对象的test()方法？
+            true / false = 正则表达式对象.test(用户填写的字符串);
 
+19、去除字符串的前后空白trim [code02.html]
 
+20、表单验证 [code03.html]
 
+21、复选框的全选和取消全选 [code04.html]
 
+22、获取下拉列表选中项的value [code05.html]
 
+23、显示网页时钟 [code06.html]
 
+24、内置支持类Array [code07.html]
 
+25、BOM编程 open and close[code08.html]
 
+26、BOM编程弹出消息框
+    window.alert("abcd");
+    window.confirm("abcd); //会有取消确认两个按键 并且有返回值 确认是true 取消是false
 
+27、将当前窗口设置为顶级窗口 
+    {
+        if (window.top != window.self) {
+            window.top.location = window.self.location;
+        }
+    }
 
+28、history对象
+    后退
+        window.history.back();
+        或者
+        window.history.go(-1);
 
+    前进
+        window.history.go(1);
 
+29、设置浏览器地址栏上的url [code09.html]
 
-
-
-
-
-
-
-
-
-
-
-<!doctype html>
-    <html>
-        <head>
-            <title></title>
-        </head>
-        <body>
-            <script type="text/javascript"></script>
-        </body>
-    </html>
-    
-
-    
+30、总结：有哪些方法可以通过浏览器往服务器发送请求?
+    1、表单form的提交
+    2、超链接
+    3、document.location
+    4、window.location
+    5、window.open("url")
+    6、直接在浏览器地址上输入URL，然后回车

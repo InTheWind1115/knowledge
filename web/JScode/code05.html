@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script text="text/javascript">
+        window.onload = function(){
+            var provinceListElt = document.getElementById("provinceList");
+            provinceListElt.onchange = function() {
+                //获取选中项的value
+                alert(provinceListElt.value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <select id="provinceList">
+        <option value="">>--请选择省份呢---<</option>
+        <option value="001">河北省</option>
+        <option value="002">河南省</option>
+        <option value="003">山东省</option>
+        <option value="004">山西省</option>
+    </select>
+</body>
+</html>

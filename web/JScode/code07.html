@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script text="text/javascript">
+        var arr = [];
+        alert(arr.length);
+        var arr2 = [1, 2, 3, false, "abc", 3.14];
+        alert(arr2.length);
+        arr2[7] = "test"; //下标会越界吗?
+        document.write("<br>");
+        for (var i = 0; i < arr2.length; i++) {
+            document.write(arr2[i]);
+            document.write("<br>");
+        }
+
+        var a3 = new Array(3, 2);
+        alert(a3.length);
+
+        var a = [1, 2, 3, 9];
+        var str = a.join("-");
+        alert(str);
+
+        a.push(10);
+        alert(a.jon("-"));
+
+        //将数组末尾的元素弹出 数组长度-1
+        var endElt = a.pop();
+
+    </script>
+</body>
+</html>

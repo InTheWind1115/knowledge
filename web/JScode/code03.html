@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <script text="text/javascript">
+        window.onload = function() {
+            var usernameElt = document.getElementById("username");
+            var usernameErrorSpan = document.getElementById("usernameError");
+            usernameElt.onblur = function() {
+                //获取用户名
+                var username = usernameElt.value;
+                username = username.trim();
+                //判断用户名是否为空
+                /*if (username) {
+
+                } else {
+
+                }*/
+                //if (username.length == 0)
+                
+                if (username === "") {
+                    usernameErrorSpan.innerText = "用户名不能为空";
+                }
+            }
+            usernameElt.onfocus = function() {
+                if (usernameErrorSpan.innerText != "") {
+                    usernameElt.value = "";
+                } else {
+                    //判断用户名长度
+                    if (username.length < 6 || username.length > 14) {
+                        usernameErrorSpan.innerText = "用户名长度非法";
+                    } else {
+                        var regExp = /^[A-Za-z0-9]+$/;
+                        var ok = regExp.test(username);
+                        if (ok) {
+
+                        } else {
+                            usernameErrorSpan.innerText = "用户名只能由数字或字母组成";
+                        }
+                    }
+                }
+                usernameErrorSpan.innerText = "";
+            }
+
+            var pwdErrorSpan = document.getElementById("pwdError");
+            var userpwd2Elt = document.getElementById("userpwd2");
+            userpwd2Elt.onblur = function() {
+                var userpwdElt = document.getElementById("userpwd");
+                var userpwd = userpwdElt.value;
+                var userpwd2 = userpwd2Elt.value;
+                if (userpwd != userpwd2) {
+                    pwdErrorSpan.innerText = "密码不一致";
+                } else {
+
+                }
+            }
+
+            userpwd2Elt.onfocus = function() {
+                if (pwdErrorSpan.innerText != "") {
+                    userpwd2Elt.innerText = "";
+                } else {
+
+                }
+            }
+
+            var emailElt = document.getElementById("email");
+            var emailSpan = document.getElementById("emailError");
+            emailElt.onblur = function() {
+                var email = emailElt.value;
+                var emailRegExp ;///
+                var ok = emailRegExp.test(email);
+                if (ok) {
+
+                } else {
+                    emailSpan.innerText = "邮箱地址不合法";
+                }
+            }
+
+            emailElt.onfocus = function() {
+                if (emailSpan.innerText != "") {
+                    emailElt.innerText = "";
+                } else {
+
+                }
+            }
+
+            var submitBtnElt = document.getElementById("submitBtn");
+
+            submitBtnElt.onclick = function() {
+                //不需要人为控制来触发事件
+                usernameElt.focus();
+                usernameElt.blur();
+                userpwd2Elt.focus();
+                userpwd2Elt.blur();
+                emailElt.focus();
+                emailElt.blur();
+
+                if (usernameErrorSpan != "" && pwdErrorSpan != "" && emailSpan != "") {
+                    var userFormElt = document.getElementById("userForm");
+                userFormElt.action = "http://wwww.baidu.com";//可以在这里设置 也可以不在这里设置
+                userFormElt.submit();
+                }
+            }
+        }
+    </script>
+
+    <form id="userForm" method="GET">
+        <input type="text" name="username" id="username" /><span id="usernameError"></span><br>
+        <input type="text" name="userpwd" id="userpwd" /><br>
+        <input type="text" id="userpwd2" /><span id="pwdError"></span><br>
+        <input type="text" name="email" id="email" /><span id="eamilError"></span><br>
+        <input type="button" value="注册" id="submitBtn" /><br>
+        <input type="reset" value="重置" /><br>
+    </form>
+</body>
+</html>
