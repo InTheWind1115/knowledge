@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = {
+            "total" : 14,
+            "emps" : [
+                {"empno":7369,"ename":"SMITH","sal":800.0},
+                {"empno":7369,"ename":"SMITH","sal":800.0},
+                {"empno":7369,"ename":"SMITH","sal":800.0},
+                {"empno":7369,"ename":"SMITH","sal":800.0}
+            ]
+        };
+
+        window.onload = function() {
+            var displayBtnElt = document.getElementById("dispalyBtn");
+            displayBtnElt.onclick = function() {
+                var emps = data.emps;
+                for (var i = 0; i < emps.length; i++) {
+                    var emp = emps[i];
+                    html += "<tr>";
+                    html += "<td>" + emp.empno + "</td>";
+                    html += "<td>" + emp.ename + "</td>";
+                    html += "<td>" + emp.sal + "</td>";
+                    html += "</tr>";
+                }
+
+                document.getElementById("emptbody").innerHTML = html;
+                document.getElementById("count").innerHTML = data.total;
+            }
+        }
+
+    </script>
+
+    <input type="button" value="显示员工列表" id="displayBtn" />
+    <h2>员工列表信息</h2>
+
+    <table border="1px" width="50%">
+        <tr>
+            <th>员工编号</th>
+            <th>员工名字</th>
+            <th>员工薪资</th>
+        </tr>
+        <tbody id="emptbody">
+            <tr>
+                <th>7369</th>
+                <th>SMITH</th>
+                <th>800.0</th>
+            </tr>
+            <tr>
+                <th>7369</th>
+                <th>SMITH</th>
+                <th>800.0</th>
+            </tr>
+            <tr>
+                <th>7369</th>
+                <th>SMITH</th>
+                <th>800.0</th>
+            </tr>
+        </tbody>
+    </table>
+
+    总共<span id="count">0</span>条数据
+</body>
+</html>

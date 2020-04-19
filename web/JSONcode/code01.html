@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建JSON对象
+        var studentObj = {
+            "sno" : "110",
+            "sname" : "zhangsan",
+            "sex" : "man"
+        };
+
+        //访问JSON对象的属性
+        alert(studentObj.sno + "," + studentObj.sname + "," + studentObj.sex);
+
+        //JSON数组
+        var students = [
+            {"sno" : "110","sname" : "zhangsan","sex" : "man"},
+            {"sno" : "120","sname" : "lisi","sex" : "man"},
+            {"sno" : "130","sname" : "wangwu","sex" : "man"}
+            ];
+
+        //遍历
+        for (var i = 0; i < students.length; i++) {
+            var stuObj = students[i];
+            alert(stuObj.sno + "," + stuObj.sname + "," + stuObj.sex);
+        }
+
+    </script>
+</body>
+</html>
