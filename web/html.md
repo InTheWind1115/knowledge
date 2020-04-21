@@ -204,7 +204,134 @@
 
                 跨列：最左侧单元格为目标单元格，写合并代码
 
-该学习p40了 加油 奥里给 我要自己写一个网站
+14、列表标签[code05.html]
+    作用：
+        表格是用来显示数据的，那么列表就是用来布局的。
+
+    无序列表：
+        基本语法格式
+            <ul>
+                <li>榴莲</li>
+                <li>臭豆腐</li>
+                <li>鲱鱼罐头</li>
+            </ul>
+
+        ul标签里面只能放li标签，但是li标签里面能放任何标签
+
+        无序列表的各个列表项之间没有顺序级别之分，是并列的
+
+    有序列表：
+        基本语法格式
+            <ol>
+                <li>刘德华 10000</li>
+                <li>刘若英 1000</li>
+                <li>pink老师 1</li>
+            </ol>
+
+        ol标签里面只能放li标签，但是li标签里面能放任何标签
+
+    自定义列表:
+        基本语法格式：
+            <dl>
+                <dt>关注我们</dt>
+                <dd>新浪微博</dd>
+                <dd>官方微信</dd>
+                <dd>联系我们</dd>
+            </dl>
+
+        dl标签里面只能放dt dd标签，但是dt dd标签里面能放任何标签
+
+15、表单标签[code06.html]
+    作用:
+        收集用户数据
+
+    组成：
+        表单域
+
+        表单控件
+
+        提示信息
+
+    表单域
+        表单域是一个包含表单元素的区域
+
+        <form></form>
+
+        属性：
+            action
+
+            method
+
+            name
+
+    表单控件
+        <input>表单元素
+            语法格式：
+                <input type="值" />
+
+                单标签
+
+                值：
+                    text 文本框
+
+                    password 密码框
+
+                    radio 单选按钮
+
+                    checkbox 复选框
+
+                    submit 提交按钮
+
+                    reset 重置按钮
+
+                    button 按钮
+
+                    file 上传文件
+
+                属性：
+                    name 给表单元素起名字，radio多选一由name属性实现 单选按钮和复选框要有相同的name值
+
+                    value 设置表单元素的属性值
+
+                    checked 是否选中
+
+                    maxlength 最大输入文本长度
+        
+            <label>标签
+                为input元素定义标注
+
+                用于绑定一个表单元素，当点击<lable>标签内的文本时，浏览器就会自动将焦点(光标)转到或者选择对应的表单元素上，用来增加用户体验
+
+                核心：<lable>标签的for属性应当与相关元素的id属性相同
+
+                <lable for="text">用户名:</lable> <input type="text" id="text" />
+
+        <select>下拉表单元素
+            语法：
+                <select>
+                    <option>山东</option>
+                    <option>北京</option>
+                    <option>天津</option>
+                </select>
+
+            至少包含一对<option>
+
+            有一个selected属性，当值为"selected"时，当前选项默认选中
+
+        <textarea>文本域表单元素
+            语法：
+                今日反馈:<textarea>请输入内容</textarea>
+
+            属性：
+                cols 每行显示多少字符
+                rows 显示多少行
+        
+
+
+        
+
+
+
 
 
 
