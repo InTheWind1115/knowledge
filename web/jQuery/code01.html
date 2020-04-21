@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../jQuery.js"></script>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function selectAll() {
+            var flag = $("#selectAllBut").prop("checked");
+
+            $(".ah").prop("checked", flag);
+        }
+    </script>
+
+    <input type="checkbox" id="selectAllBut" onclick="selectAll()" />全选<br>
+    <input type="checkbox" class="ah" />吃<br>
+    <input type="checkbox" class="ah" />喝<br>
+    <input type="checkbox" class="ah" />玩<br>
+
+</body>
+</html>
