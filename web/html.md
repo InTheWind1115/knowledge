@@ -304,7 +304,8 @@
 
                 核心：<lable>标签的for属性应当与相关元素的id属性相同
 
-                <lable for="text">用户名:</lable> <input type="text" id="text" />
+                <lable for="text">用户名:</lable> 
+                <input type="text" id="text" />
 
         <select>下拉表单元素
             语法：
