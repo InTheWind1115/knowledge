@@ -898,9 +898,154 @@
         border-top-color: blue; //向下的箭头
     }
 
+27、用户界面样式
+    鼠标样式cursor
+        cursor: 样式;
 
+        样式：
+            default     小白 默认
 
-        
+            pointer     小手
+
+            move        移动
+
+            text        文本
+
+            not-allowed 禁止
+
+    轮廓线outline
+        给表单添加outline: 0;或者outline: none;样式之后，就可以去掉默认地蓝色功能
+
+        input {
+            outline: none;
+        }
+
+    防止拖拽文本域resize
+        实际开发中，我们本文域右下角是不可以拖拽地
+
+        textarea {
+            resize: none;
+        }
+
+28、vertical-align属性
+    使用场景：经常用于设置图片或者表单(行内块元素)和文字垂直对齐
+
+    官方解释：用于设置一个元素地垂直对齐方式，但是它只针对于行内元素或者行内快元素有效
+
+    语法：
+        vertical-align: baseline | top | middle | bottom;
+
+        baseline    默认。元素放置在父元素的基线上
+
+        top         把元素地顶端于行中最高元素地顶端对齐
+
+        middle      把此元素防止在父元素地中部
+
+        bottom      把元素地顶端与行中最低地元素的顶端对齐
+
+29、溢出的文字省略号显示
+    单行文本溢出显示省略号，必须满足三个条件
+        div {
+            //先强制一行内显示文本 (默认normal自动换行)
+            white-space: nowrap;
+            //超出的部分隐藏
+            overflow: hidden;
+            //文字用省略号替代超出的部分
+            text-overflow: ellipsis;
+        }
+
+    多行文本溢出显示省略号
+        多行文本溢出显示省略号，有较大的兼容性问题，适合于webKit浏览器或移动端(移动端大部分是webKit内核)
+
+        div {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            //弹性伸缩盒子模型显示
+            display: -webkit-box-;
+            //限制在一个块元素显示的文本的行数
+            -webkit-line-clamp: 2;
+            //设置或检索伸缩盒对象的子元素的排列方式
+            -webkit-box-orient: vertical;
+        }
+
+30、开发技巧
+    margin负值运用：
+        淘宝多框图片，去掉重复的边框
+
+        ul li {
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+            margin-left: -1px;
+        }
+            有人会说都往左移动1px，那不守恒了吗？实际上li是一个一个渲染的
+            第一个摆放好然后左移，然后第二个li，因为先浮动，所以紧贴，在往左移，故可以
+
+31、HTML5新特性
+    HTML5新增的语义化标签
+        <header> 头部标签
+
+        <nav> 导航标签
+
+        <article> 内容标签
+
+        <section> 定义文档某个区域
+
+        <aside> 侧边栏标签
+
+        <footer> 尾部标签
+
+        注意：
+            这种语义化标准主要时针对搜索引擎的
+
+            这些新标签页面中可以使用多次
+
+            在IE9中，需要把这些元素转换为块级元素
+
+            其实，我们移动端更喜欢使用这些标签
+
+            HTML5还增加了很多其他标签，我们后面再慢慢学
+
+    <video>视频
+        语法
+            <videos src="文件地址" controls="controls"></videos>
+
+            或者下面这种兼容性更强的写法
+            <video controls="controls" width="300">
+                <source src="move.ogg" type="video/ogg">
+                <source src="move.mp4" type="video/mp4">
+                您的浏览器暂不支持<video>标签播放视频
+            </video>
+
+        常见属性
+            去w3cschool查看
+
+     <audio>音频
+        语法
+            <audio src="文件地址" controls="controls"></audio>
+
+            或者下面这种兼容性更强的写法
+            <audio controls="controls" width="300">
+                <source src="move.mp3" type="audio/mpeg">
+                <source src="move.ogg" type="audio/ogg">
+                您的浏览器暂不支持<audio>标签播放视频
+            </audio>
+
+        常见属性
+            去w3cschool查看
+
+    HTML5新增的input类型
+        去w3cschool查看
+
+    HTML5新增的表单属性
+        去w3cschool查看
+
+        可以通过以下设置方式修改placeholder里面的字体颜色
+            input::placeholder {
+                color: pink;
+            }
 
 
 
