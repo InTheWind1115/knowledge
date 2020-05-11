@@ -1047,9 +1047,121 @@
                 color: pink;
             }
 
+32、CSS3新特性
+    属性选择器
+        属性选择器可以根据元素特定属性的来选择元素，这样就可以不用借助于类或者id选择器
 
+        选择符                  简介
+        E[att]                  选择具有att属性的E元素
+        E[att="val"]            选择具有att属性且属性值等于val的E元素
+        E[att^="val"]           匹配具有att属性且值以val开头的E元素
+        E[att$="val"]           匹配具有att属性且值以val结尾的E元素
+        E[att*="val"]           匹配具有att属性且值中含有val的E元素
 
+        注意：类选择器、属性选择器、伪类选择器、权重为10
 
+    结构伪类选择器
+        结构伪类选择器主要根据文档结构来选择器元素，常用于根据父级选择器里面的子元素
+
+        选择符                  简介
+        E:first-child           匹配父元素中的第一个子元素E
+        E:last-child            匹配父元素中的最后一个子元素E
+        E:nth-child(n)          匹配父元素中的第n个子元素E
+        E:first-of-type         指定类型E的第一个
+        E:last-of-type          指定类型E的最后一个
+        E:nth-of-type(n)        指定类型E的第n个
+
+        区别
+            nth-child对父元素里面所有孩子排序选择(序号是固定的) 先找到第n个孩子，然后看看是否和E匹配
+
+            nth-of-type对父元素里面指定子元素进行排序选择。先去匹配E，然后再根据E找第n个孩子
+
+        nth-child(n)选择某个父元素的一个或多个特定的子元素
+            n可以是数字，关键字和公式
+
+            n如果是数字，就是选择第n个子元素，里面数字从1开始
+
+            n可以是关键字:even偶数 odd奇数
+
+            n可以是公式:常见的公式如下(如果n是公式，则从0开始计算，但是第0个元素或者超出了元素的个数会被忽略)
+                2n      偶数
+                2n+1    奇数
+                5n      5 10 15...
+                n+5     从第五个开始(包含第五个)到最后
+                -n+5    前五个(包含第五个)
+
+    伪元素选择器⭐⭐⭐⭐⭐
+        伪元素选择器可以帮助我们利用CSS创建新标签元素，而不需要HTML标签，从而简化HTML结构
+
+        选择符          简介
+        ::before        在元素内部的前面插入内容        
+        ::after         在元素内部的后面插入内容
+
+        注意：
+            before和after创建一个元素，但是属于行内元素
+            新创建的这个元素在文档树中是找不到的，所以我们称为伪元素
+            语法:element::before {}
+            before和after必须有content属性
+            before在父元素内容的前面创建元素，after在父元素内容的后面插入元素
+            伪元素选择器和标签选择器一样，权重为1
+
+        应用：
+            伪元素清除浮动
+                .clearfix:after{
+                    content: "";    //伪元素必须写的属性
+                    display: block; //插入的元素必须是块级
+                    height: 0;      //不要看见这个元素
+                    clear: both;    //核心代码清除浮动
+                    visitbility: hidden;    //不要看见这个元素
+                }
+
+            伪元素清除浮动
+                后面两种伪元素清除浮动算是第一种额外标签法的一个升级和优化
+
+                .clearfix:before, .clearfix:after {
+                    content: "";
+                    display: table;     //转换为块级元素并且一行显示
+                }
+
+                .clearfix:after {
+                    clear: both;
+                }
+
+    CSS3盒子模型
+        CSS3中可以通过box-sizing来指定盒模型，有2个值:即可指定为content-box、boder-box，这样
+        我们计算盒子大小的方式就发生了改变
+
+        可以分成两种情况:
+            box-sizing: content-box 盒子大小为width + padding + border (以前默认的)
+
+            box-sizing: border-box 盒子大小为width
+
+        如果盒子模型我们改为了box-sizing: border-box, 那padding和border就不会撑大盒子了(前提padding和border不会超过width宽度)
+
+    CSS3滤镜filter：
+        filter CSS属性将模糊或颜色偏移等图形效果应用于元素
+
+        filter: 函数(); //例如: filter: blur(5px); blur模糊处理 数值越大越模糊
+
+    CSS3 calc 函数:
+        calc()此CSS函数让你在声明CSS属性值时执行一些计算
+
+        width: calc(100% - 80px);
+
+        括号里面可以使用+ - * /来进行计算
+
+    CSS3过滤(重点)⭐⭐⭐⭐⭐
+        transition: 要过滤的属性 花费时间 运动曲线 何时开始;
+
+        属性：想要变化的css属性，宽度高度 背景颜色 内外边距都可以，如果想要所有的属性都变化过渡，写一个all就可以
+
+        花费时间：单位是秒(必须写单位) 比如0.5s
+
+        运动曲线: 默认是ease(可以省略)
+
+        何时开始: 单位是秒(必须写单位) 可以设置延迟触发时间 默认是0s (可以省略)
+
+        记住过渡的使用口诀: 谁做过渡给谁加
 
 
 
