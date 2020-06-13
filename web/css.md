@@ -1150,8 +1150,10 @@
 
         括号里面可以使用+ - * /来进行计算
 
-    CSS3过滤(重点)⭐⭐⭐⭐⭐
-        transition: 要过滤的属性 花费时间 运动曲线 何时开始;
+        应用：子盒子永远比父盒子小固定的px
+
+    CSS3过渡(重点)⭐⭐⭐⭐⭐
+        transition: 要过渡的属性 花费时间 运动曲线 何时开始;
 
         属性：想要变化的css属性，宽度高度 背景颜色 内外边距都可以，如果想要所有的属性都变化过渡，写一个all就可以
 
@@ -1163,7 +1165,191 @@
 
         记住过渡的使用口诀: 谁做过渡给谁加
 
+33、网站favicon图标
+    制作favicon图标
+        把图片切成png格式图片
 
+        把png图片转换为ico图标，第三方转换网站: http://www.bitbug.net/
+
+    favicon图标放到网站根目录下
+
+    HTML页面引入favicon图标
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+34、网站TDK三大标签SEO[搜索引擎]优化
+    title网站标题
+        title具有不可替代性，是我们内页的第一个重要标签，是搜索引擎了解网页的入口和对网页主题归属的最佳判断点。
+
+        建议: 网站名(产品名)-网站的介绍(尽量不要超过30个汉字)
+
+        例如: 京东(JD.COM)-综合网购首选-正品低价、品质保障、配送及时、轻松购物！
+              
+    description网站说明
+        简要说明我们网站主要是做什么的
+
+        我们提倡，description作为网站的总体业务和主题概括，多采用"我们是...", "我们提供...", "xxx网作为...", "电话: 010..."之类语句
+
+        例如：
+            <meta name="description" content="京东JD.COM-专业的综合网上购物商城, 销售家电、数码通讯等数万个品牌优质的商品, 便捷、诚信的服务, 为您提供愉悦的网上购物体验!" />
+
+    keywords关键字⭐⭐
+        keywords是页面关键词，是搜索引擎的关注点之一。
+
+        keywords最好限制为6 ~ 8个关键词, 关键词之间用英文逗号隔开, 采用关键词1,关键词2的形式
+
+        例如：
+            <meta name="keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,京东" />
+
+35、LOGO SEO优化
+    logo里面首先放一个h1标签，目的是为了提权，告诉搜索引擎，这个地方很重要
+
+    h1里面再放一个链接，可以返回首页的，把logo的背景图片给链接即可
+
+    为了搜索引擎收录我们，我们链接里面要放文字(网站名称)，但是文字不要显示出来
+        方法1：text-indent移动到盒子外面(text-indent: -9999px),然后overflow: hidden, 淘宝的做法
+
+        方法2: 直接给font-size: 0;就看不到文字了，京东的做法
+
+    最后给链接一个title属性，这样鼠标放到logo上就可以看到提示文字了
+    
+36、2D转换
+    转换之移动translate
+        语法
+            transform: translate(x, y);
+            transform: translateX(n);
+            transform: translateY(n);
+
+        重点
+            定义2D转换中的移动，沿着X和Y轴移动元素
+
+            translate最大的优点：不会影响到其他元素的位置
+
+            translate中的百分比单位是相对于自身元素的translate(50%, 50%);
+
+            对行内标签没有效果
+
+        块元素垂直居中显示应用，用translate来做
+            p {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 200px;
+                height: 200px;
+                transform: translate(-50%, -50%);
+                /* 
+                    本来是
+                    margin-top: -100px;
+                    margin-left: -100px;
+                */
+            }
+
+    旋转rotate
+        语法
+            transform: rotate(度数);
+
+        重点
+            rotate里面跟度数，单位是deg，比如rotate(45deg)
+
+            角度为正时，顺时针，负时，为逆时针
+
+            默认旋转的中心点时元素的中心点
+
+    2D转换中心点transform-origin
+        语法
+            transform-origin: x y;
+
+        重点
+            注意x y之间用空格隔开
+            x y默认转换的中心是元素的中心点 (50% 50%)
+            还可以给x y 设置像素 或者方位名词 (top bottom left right center)
+
+    缩放scale
+        语法
+            transform: scale(x, y);
+            
+        重点    
+            注意用空格隔开
+            transform: scale(1, 1);宽和高都放大一倍 相对于没有变化
+            transform: scale(2, 2);宽和高都放大了2倍
+            transform: scale(2);只写一个参数，第二个参数则和第一个参数一样，相当于scale(2, 2);
+            transform: scale(0.5, 0.5);缩小
+            scale缩放最大的优势：可以设置转换中心点缩放，默认以中心点缩放的，而且不影响其它盒子
+
+    综合写法
+        transform: translate() rotate() scale()...
+        顺序会影响转换的效果(先旋转会改变坐标轴方向)
+        当我们同时有位移和其他属性的时候，记得要将位移放到最前
+
+37、动画
+    步骤
+        先定义动画
+            用keyframes定义动画(类似定义类选择器)
+
+            @keyframes 动画名称 {
+                0% {
+                    width: 100px;
+                }
+
+                100% {
+                    width: 200px;
+                }
+            }
+
+        再使用动画
+            div {
+                animation-name: 动画名称;
+                animation-duration: 持续时间;
+            }
+
+    动画序列
+        0%是动画的开始，100%是动画的完成，这样的规则就是动画序列
+
+        在@keyframes种规定某项CSS样式，就能创建由当前样式逐渐改变为新样式的动画效果
+
+        动画是使元素从一种样式逐渐变化为另外一种样式的效果，可以改变任意多的样式任意多的次数
+
+        请用百分比来规定变化发生的时间，或用关键词"from"和"to"，等同于0%和100%
+
+    常用属性
+        w3c查看
+
+38、3D转换
+    三维坐标系
+        x轴：水平向右       右为正 左为负
+        y轴：垂直向下       下为正 上为负
+        z轴：垂直屏幕       外为正 里为负
+
+    3D移动
+        transform: translateX(100px);仅仅是在x轴上移动
+        transform: translateY(100px);仅仅是在y轴上移动
+        transform: translateZ(100px);仅仅是在z轴上移动      //有了透视才能看到
+        transform: translate3d(x, y, z);
+
+    3D旋转
+        左手准则
+            左手的手指指向x/y/z轴的正方向
+            4指弯曲方向就是沿x/y/z轴旋转的方向
+
+        transform: rotateX(45deg);沿着X轴正方向旋转45度
+        transform: rotateY(45deg);沿着y轴正方向旋转45度
+        transform: rotateZ(45deg);沿着z轴正方向旋转45度
+        transform: rotate3d(x, y, z, 45deg);沿着自定义旋转轴旋转 了解即可
+
+    3D呈现
+        transform-style: flat | preserve-3d;
+
+        flat:子元素不开启3d立体空间 默认的
+
+        preserve-3d:子元素开启立体空间
+
+        代码写给父级，但是影响的是子盒子
+
+        这个属性很重要，后面必用
+
+39、浏览器私有前缀
+        
+        
+        
 
 
 
